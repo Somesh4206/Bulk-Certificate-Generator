@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+certificate.db
+generated_certificates/*
+!generated_certificates/.gitkeep
+.pytest_cache/
