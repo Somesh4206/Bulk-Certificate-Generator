@@ -39,11 +39,6 @@ def process_job(job_id: str) -> None:
             cert.status = "processing"
             db.commit()
             try:
-                # Simulated per-recipient failure hook (used by tests to prove
-                # isolation). Any name starting with FAIL_ fails on purpose.
-                if cert.recipient_name.startswith("FAIL_"):
-                    raise ValueError("Simulated generation failure for testing")
-
                 path = build_certificate_path(job_id, cert.id)
                 render_certificate(
                     path,
